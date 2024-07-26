@@ -4,7 +4,7 @@
 # ======= C flags =========================================
 if("${CMAKE_C_COMPILER_ID}" MATCHES "Clang")
   MESSAGE(STATUS "  C compiler: Clang")
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w -m64")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w")
 
   execute_process(COMMAND clang --version OUTPUT_VARIABLE clang_version_output)
   string(REGEX MATCH "[0-9]+" clang_version "${clang_version_output}")
@@ -15,7 +15,7 @@ if("${CMAKE_C_COMPILER_ID}" MATCHES "Clang")
 
 elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
   MESSAGE(STATUS "  C compiler: GNU GCC")
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w -m64")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w")
 
 elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "Intel")
   MESSAGE(STATUS "  C compiler: Intel C")
@@ -25,7 +25,7 @@ elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
 
 else()
   message(STATUS "  C compiler not recognized: ${CMAKE_C_COMPILER_ID}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w -m64")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 
 endif()
 
